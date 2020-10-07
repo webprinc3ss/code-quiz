@@ -31,7 +31,27 @@ header {
     color: var(--tertiary-color);
 }
 
+main {
+    display:flex;
+    justify-content: center;
 
+}
+
+.quiz {
+    width: 50%;
+    text-align:center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 2px;
+}
 a {
     color: var(--tertiary-color);
 
@@ -41,8 +61,25 @@ a:hover {
     color: var(--secondary-color);
 }
 
-
 .initials {
     border: 2px thin #5494cd;
 }
+
+button {
+    background-color:var(--secondary-color);
+    color: var(--quaternary-color);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    border-radius: 12px;
+    border: 0px;
+  }
+
+  button:hover {
+    background-color:var(--tertiary-color);
+  }
 
