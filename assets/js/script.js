@@ -1,5 +1,8 @@
 //Variables declared by ID
+var start = document.getElementById("start")
 var h1 = document.getElementById("h1");
+var quizContent = document.getElementById ("quizContent");
+var welcome = document.getElementById ("welcome");
 var question = document.getElementById("question");
 var answer = document.getElementById("answer");
 var highScores = document.getElementById("highScores");
@@ -59,15 +62,23 @@ var lastQuestion = questions.length - 1;
 var runningQuestion = 0;
 
 function runQuestion(){
+    //welcome.style.display = "none";
+    quizContent.style.display = "block";
 
     var q = questions[runningQuestion];
 
-    choice1.innerHTML = q.choiceA;
+    choice1.innerHTML = q.choice1;
 
-    choice2.innerHTML = q.choiceB;
+    choice2.innerHTML = q.choice2;
 
-    choice3.innerHTML = q.choiceC;
+    choice3.innerHTML = q.choice3;
 
-    choice4.innerHTML = q.choiceD;
+    choice4.innerHTML = q.choice4;
 }
+
+
+runQuestion();
+
+start.addEventListener("click", runQuestion);
+
 
