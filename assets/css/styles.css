@@ -113,7 +113,21 @@ hr {
     border-top: 1px solid #cccccc;
 }
 
-button {
+.btn  {
+    background-color:var(--secondary-color);
+    color: var(--quaternary-color);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    border-radius: 12px;
+    border: 0px;
+  }
+
+button  {
     background-color:var(--secondary-color);
     color: var(--quaternary-color);
     padding: 10px;
@@ -132,7 +146,7 @@ button {
   }
 
   .choice {
-      display:block;
+      display:visible;
   }
 
   .initialBtn {

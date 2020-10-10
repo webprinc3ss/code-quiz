@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!--# Question Game
+
+## Instructions
+
+* Starting from a blank HTML file, create an array with 10 question objects. Each object in the array should be structured as follows: 
+
+  `{ q: "QUESTION", a: "ANSWER" }`
+
+* Then create code that will ask the user questions, one by one. The user must answer by hitting OK (for true) or Cancel (for false).
+
+* Check the user's answer against the correct answer, and provide them with an alert telling them if they are right or wrong.-->
+    <script>
+
+//var questions = [
+    //new Question("Commonly used data types DO NOT include __________.", ["strings", "booleans","alerts", "numbers"], "alerts"),
+    //new Question("Arrays in Java Script can be used to store _________.", ["numbers and strings", "other arrays","booleans", "all of the above"], "all of the above"),
+    //new Question("String values must be enclosed within _________ when being assigned to variables.", ["commas", "curly brackets","quotes", "parenthesis"], "parenthesis"),
+    //new Question("The condition in an if/else statement is enclosed with _________.", ["quotes", "curly brackets","parenthesis", "square brackets"], "curly brackets"),
+    //new Question("A very useful tool used during development for printing content to the debugger is:", ["JavaScript", "terminal/bash","for loops", "console.log"], "console.log"),
+//];
+
+
+        var questions = [
+            { q:  'Commonly used data types DO NOT include __________.', b: {c1: "strings", c2: "booleans", c3: "alerts", c4: "numbers"}, a: "alerts" },
+            { q: 'Arrays in Java Script can be used to store _________.', b: {c1: "numbers and strings", c2: "other arrays", c3: "booleans", c4: "all of the above"}, a: "all of the above"},
+        ]
+
+        // get 2nd object: questions[1].q
+
+        //We Start the game with a score of 0.
+        var score = 0;
+
+        //Loop over every question object
+
+        for (var i = 0; i < questions.length; i++) {
+            // Display current question to user and ask ok/cancel
+            //var answer = confirm(questions[i].q);
+            //document.getElementById("start").addEventListener("click", takeQuiz);
+
+            console.log(answer);
+
+            var h1 = document.querySelector("#question");
+            h1.innerHTML = questions [i].q;
+
+           
+           var button = document.createElement("button");
+           console.log(answer);
+           document.getElementById("choice").appendChild(button);
+           button.innerHTML = questions [i].b;
+           button.style = "display:block;"
+
+           var answer = a[i].a.onclick;
+
+           //var answer = confirm(questions[i].q);
+
+           //answer[i].onclick = function() { someFunction(this);};
+
+           //myElems[i].onclick = function() { someFunction(this);};
+
+            (questions[i]);
+            if (
+                (answer === true && questions[i].a === true) ||
+               (answer === false && questions[i].a === false)
+           ) {
+                //Increase score
+                score++;
+               alert('Correct!');
+            } else {
+                alert('Wrong!');
+            }
+        };
+
+        alert('You got ' + score + '/' + questions.length);
+
+
+
+    </script>
+
+</body>
+
+</html>
