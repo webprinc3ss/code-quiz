@@ -153,10 +153,13 @@ var highScores = JSON.parse(localStorage.getItem("highScores")) || []
         var retrievedScores = JSON.parse(localStorage.getItem("highScores"));
 
         for (var i = 0; i < retrievedScores.length; i++) {
-            var li = document.createElement("li")
-            document.getElementById("scorelist").appendChild(li)
-            li.innerHTML += retrievedScores[i].initials + "&nbsp&nbsp;&nbsp&nbsp&nbsp" +  retrievedScores[i].score;
-
+            var div = document.createElement("div")
+            document.getElementById("initials").appendChild(div)
+            div.innerHTML +=  retrievedScores[i].initials.toUpperCase() 
+            var div2 = document.createElement("div2")
+            div2.setAttribute("class", "block");
+            document.getElementById("scoreDisplay").appendChild(div2)
+            div2.innerHTML +=  retrievedScores[i].score
 
         //highScores.forEach(function(highScores){
             //console.log(highScores)
@@ -202,5 +205,6 @@ function clear() {
     document.getElementById("initialsForm").addEventListener("submit", saveScore)
     document.getElementById("goBack").addEventListener("click", goBack)
     document.getElementById("clearScores").addEventListener("click" , clear)
+
 
     
