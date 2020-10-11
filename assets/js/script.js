@@ -1,4 +1,5 @@
 var highScores = JSON.parse(localStorage.getItem("highScores")) || []
+//console.log(highScores)
     //short circuiting
 
     var questions = [
@@ -138,20 +139,56 @@ var highScores = JSON.parse(localStorage.getItem("highScores")) || []
         console.log(initials)
         var newHighScore = {initials , score}
         highScores.push(newHighScore)
+        highScores.sort( (a,b) => b.score - a.score)
+        //var MAX_HIGH_SCORES = 5;
+        highScores.splice(5);
         localStorage.setItem("highScores", JSON.stringify(highScores))
+        console.log(highScores);
         document.getElementById("yourScore").style = "display: none";
         document.getElementById("listScores").style = "display: block";
-        localStorage.getItem("highscores");
+        //localStorage.getItem("highscores");
         // iterate localStorage
+        //scorelist.innerHTML = highScores
 
-        // loop through savedTasks array
-        for (var i = 0; i < localStorage.length; i++) {
-            // pass each task object into the `createTaskEl()` function
+        var retrievedScores = JSON.parse(localStorage.getItem("highScores"));
+
+        for (var i = 0; i < retrievedScores.length; i++) {
             var li = document.createElement("li")
             document.getElementById("scorelist").appendChild(li)
-            li.textContent = LocalStorage[i]("initials");
+            li.innerHTML += retrievedScores[i].initials + "&nbsp&nbsp;&nbsp&nbsp&nbsp" +  retrievedScores[i].score;
+
+
+        //highScores.forEach(function(highScores){
+            //console.log(highScores)
+            //var li = document.createElement("li")
+            //document.getElementById("scorelist").appendChild(li)
+           //li.innerHTML = highScores
+        //}) 
         }
+
+        //for (var i = 0; i < highScores.length; i++) {
+            //console.log(highScores)
+
+            //var li = document.createElement("li")
+            //document.getElementById("scorelist").appendChild(li)
+           //li.innerHTML = "highScores.initials" + "highScores.score"
+           //console.log(highScores[0])
+           
     }
+
+        
+        //.map(highScores => {
+            //return highScores.initials[0] , highScores.score[0]
+        //})
+        //.join("");
+        
+        //for (var i = 0; i < localStorage.length; i++) {
+           
+            //var li = document.createElement("li")
+            //document.getElementById("scorelist").appendChild(li)
+           // li.textContent = highScores.initials
+        //}
+    
 
 function goBack() {
     location.reload();
