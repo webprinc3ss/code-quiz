@@ -17,13 +17,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/*.container {
-    width: auto;
-    flex: display;
-    justify-content: center;
-    text-align: center;
-}*/
-
 header {
     padding: 25px 25px;
     background-position: 80%;
@@ -38,7 +31,6 @@ h1 {
     
     color: #000;
     font-size: 40px;
-    /*margin-bottom: 30px;*/
 }
 
 p {
@@ -60,7 +52,15 @@ a:hover {
 }
 
 .scores {
-    color: var(--tertiary-color);
+    color: var(--tertiary-color); 
+    padding: 5px;  
+}
+
+.scores:hover {
+    color: var(--quaternary-color);
+    background-color: var(--secondary-color);
+    padding: 5px;
+    border-radius: 12px;
 }
 
 main {
@@ -98,8 +98,6 @@ main {
 
 .done {
     display: none;
-    
-    
 }
 
 input[type=text] {

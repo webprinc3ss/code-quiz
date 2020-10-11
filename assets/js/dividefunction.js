@@ -1,5 +1,4 @@
 var highScores = JSON.parse(localStorage.getItem("highScores")) || []
-var displayScore = false;
 //short circuiting
 
 var questions = [
@@ -135,27 +134,22 @@ function saveScore(event) {
 }
 
 function showScores() {
-    if (!displayScore) {
-        document.getElementById("startQuiz").style = "display: none";
-        document.getElementById("yourScore").style = "display: none";
-        document.getElementById("listScores").style = "display: block";
-        var retrievedScores = JSON.parse(localStorage.getItem("highScores"));
+    document.getElementById("yourScore").style = "display: none";
+    document.getElementById("listScores").style = "display: block";
+    var retrievedScores = JSON.parse(localStorage.getItem("highScores"));
 
-        for (var i = 0; i < retrievedScores.length; i++) {
-            var div = document.createElement("div")
+    for (var i = 0; i < retrievedScores.length; i++) {
+        var div = document.createElement("div")
         div.innerHTML += retrievedScores[i].initials.toUpperCase()
         document.getElementById("initials").appendChild(div)
         var div2 = document.createElement("div2")
         div2.setAttribute("class", "block");
         div2.innerHTML += retrievedScores[i].score
         document.getElementById("scoreDisplay").appendChild(div2)
-        }
-        displayScore = true;
     }
 }
 
 function goBack() {
-    displayScore = false;
     location.reload();
 }
 
@@ -167,6 +161,5 @@ document.getElementById("start").addEventListener("click", takeQuiz)
 document.getElementById("initialsForm").addEventListener("submit", saveScore)
 document.getElementById("goBack").addEventListener("click", goBack)
 document.getElementById("clearScores").addEventListener("click", clear)
-document.getElementById("highScores").addEventListener("click", showScores)
 
 
