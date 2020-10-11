@@ -143,66 +143,27 @@ var highScores = JSON.parse(localStorage.getItem("highScores")) || []
         document.getElementById("listScores").style = "display: block";
         localStorage.getItem("highscores");
         // iterate localStorage
-        for (var i = 0; i < highScores.length; i++) {
 
-            // set iteration key name
-            var key = localStorage.key(i);
-
-            // use key name to retrieve the corresponding value
-            var value = localStorage.getItem(key);
-
-            // console.log the iteration key and value
-            console.log('Key: ' + key + ', Value: ' + value);
-
+        // loop through savedTasks array
+        for (var i = 0; i < localStorage.length; i++) {
+            // pass each task object into the `createTaskEl()` function
             var li = document.createElement("li")
             document.getElementById("scorelist").appendChild(li)
-            li.textContent = key + value
-
+            li.textContent = LocalStorage[i]("initials");
         }
-
-            
-
-            
-            
-        
-
-        
     }
-
-//var loadTasks = function () {
-    //var savedTasks = localStorage.getItem("tasks");
-
-    //if (!savedTasks) {
-       // return false;
-    //}
-
-    //savedTasks = JSON.parse(savedTasks);
-    // loop through savedTasks array
-    //for (var i = 0; i < savedTasks.length; i++) {
-        // pass each task object into the `createTaskEl()` function
-        //createTaskEl(savedTasks[i]);
-    //}
-//}
-
-
-
 
 function goBack() {
     location.reload();
 }
 
+function clear() {
+    localStorage.clear();
+}
 
-
-
-
-    
     document.getElementById("start").addEventListener("click", takeQuiz)
     document.getElementById("initialsForm").addEventListener("submit", saveScore)
     document.getElementById("goBack").addEventListener("click", goBack)
+    document.getElementById("clearScores").addEventListener("click" , clear)
 
-    
-    
-    
-    
-    //var quiz = new Quiz(questions);
     
