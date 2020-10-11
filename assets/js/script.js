@@ -61,7 +61,6 @@ function takeQuiz() {
     document.getElementById("startQuiz").style = "display: none";
     document.getElementById("quizSection").style = "display:block";
     document.getElementById("questionDiv").style = "display:block";
-
     displayQuestion(currentQuestion)
     startTimer()
 }
@@ -84,6 +83,7 @@ function displayQuestion(index) {
 
 
 function evaluateAnswer(correct) {
+    
     if (correct) {
         score = score + 10
         document.getElementById("result").textContent = "Correct!"
@@ -122,9 +122,19 @@ function results() {
 function saveScore(event) {
     event.preventDefault()
     var initials = document.getElementById("inputInitials").value
-    if (!initials) {
+    var letters = /^[a-zA-Z]+$/;
+
+    if (!initials  || initials.length > 2) {
+        alert("Please enter two letters.");
         return;
     }
+    if (inputInitials.value.match(letters) ) {
+    }else{ 
+        alert("Please enter two letters only.")
+        return;
+    }
+
+
     var newHighScore = { initials, score }
     highScores.push(newHighScore)
     highScores.sort((a, b) => b.score - a.score)

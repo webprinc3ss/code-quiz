@@ -28,7 +28,6 @@ header {
 }
 
 h1 {
-    
     color: #000;
     font-size: 40px;
 }
@@ -40,7 +39,6 @@ p {
 }
 a {
     color: var(--tertiary-color);
-
 }
 
 a:hover {
@@ -67,8 +65,7 @@ main {
 
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    
+    width: 50%;  
 }
 
 .welcome {
@@ -111,20 +108,6 @@ hr {
     border-top: 1px solid #cccccc;
 }
 
-.btn  {
-    background-color:var(--secondary-color);
-    color: var(--quaternary-color);
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 25px;
-    letter-spacing: 2px;
-    margin-top: 20px;
-    border-radius: 12px;
-    border: 0px;
-  }
-
 button  {
     background-color:var(--secondary-color);
     color: var(--quaternary-color);
@@ -139,6 +122,15 @@ button  {
     border: 0px;
   }
 
+  .initialBtn {
+    padding: 4px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    border-radius: 8px;
+    clear: both;
+  }
+
   button:hover {
     background-color:var(--tertiary-color);
   }
@@ -151,22 +143,6 @@ button  {
       display: block;
   }
 
-  .initialBtn {
-    background-color:var(--secondary-color);
-    color: var(--quaternary-color);
-    padding: 4px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    letter-spacing: 2px;
-    margin-top: 20px;
-    border-radius: 8px;
-    border: 0px;
-    clear: both;
-    /*width: 100px;*/
-  }
-
 .scoreSpace {
     width: 200px;
     display: inline;
@@ -174,8 +150,6 @@ button  {
 
 #initials, #scoreDisplay {
     width: 50%;
-    
-
 }
 
 #initials {
@@ -224,6 +198,5 @@ ul {
         margin-top: 15px;
         border-radius: 12px;
       }
-
   }
 
