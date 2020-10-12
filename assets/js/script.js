@@ -1,6 +1,5 @@
 var highScores = JSON.parse(localStorage.getItem("highScores")) || []
 var displayScore = false;
-//short circuiting
 
 var questions = [
     {
@@ -32,7 +31,7 @@ var questions = [
 
 var currentQuestion = 0
 var timeLeft = 0
-var maxTime = 40
+var maxTime = 60
 var score = 0
 var timerHandle
 var resultDisplayHandle
@@ -58,6 +57,7 @@ var clearContent = function () {
 };
 
 function takeQuiz() {
+    document.getElementById("listScores").style = "display: none";
     document.getElementById("startQuiz").style = "display: none";
     document.getElementById("quizSection").style = "display:block";
     document.getElementById("questionDiv").style = "display:block";
@@ -66,7 +66,9 @@ function takeQuiz() {
 }
 
 function displayQuestion(index) {
+
     var question = questions[index]
+    document.getElementById("highScores").style.display = "none"
     document.getElementById("questionHeader").textContent = question.q
     document.getElementById("choiceDiv").innerHTML = ''
     for (let i = 0; i < question.b.length; i++) {
@@ -77,19 +79,20 @@ function displayQuestion(index) {
             evaluateAnswer(i === question.a)
         })
         document.getElementById("choiceDiv").appendChild(button)
-
     }
+    document.getElementById("listScores").style = "display: none";
 }
 
-
 function evaluateAnswer(correct) {
-    
+
     if (correct) {
         score = score + 10
         document.getElementById("result").textContent = "Correct!"
+        document.getElementById("listScores").style = "display: none";
     } else {
         setTimeLeft(timeLeft - 10)
         document.getElementById("result").textContent = "Incorrect...!"
+        document.getElementById("listScores").style = "display: none";
     }
     currentQuestion++
 
@@ -101,6 +104,7 @@ function evaluateAnswer(correct) {
 
     if (currentQuestion < questions.length) {
         displayQuestion(currentQuestion)
+
     } else {
         results()
         console.log("You've finished!")
@@ -120,16 +124,17 @@ function results() {
 }
 
 function saveScore(event) {
+    document.getElementById("listScores").style = "display: none";
     event.preventDefault()
     var initials = document.getElementById("inputInitials").value
     var letters = /^[a-zA-Z]+$/;
 
-    if (!initials  || initials.length > 2) {
+    if (!initials || initials.length > 2) {
         alert("Please enter two letters.");
         return;
     }
-    if (inputInitials.value.match(letters) ) {
-    }else{ 
+    if (inputInitials.value.match(letters)) {
+    } else {
         alert("Please enter two letters only.")
         return;
     }
@@ -141,7 +146,9 @@ function saveScore(event) {
     highScores.splice(5);
     localStorage.setItem("highScores", JSON.stringify(highScores))
     console.log(highScores);
+
     showScores();
+    displayScore = false;
 }
 
 function showScores() {
@@ -153,12 +160,12 @@ function showScores() {
 
         for (var i = 0; i < retrievedScores.length; i++) {
             var div = document.createElement("div")
-        div.innerHTML += retrievedScores[i].initials.toUpperCase()
-        document.getElementById("initials").appendChild(div)
-        var div2 = document.createElement("div2")
-        div2.setAttribute("class", "block");
-        div2.innerHTML += retrievedScores[i].score
-        document.getElementById("scoreDisplay").appendChild(div2)
+            div.innerHTML += retrievedScores[i].initials.toUpperCase()
+            document.getElementById("initials").appendChild(div)
+            var div2 = document.createElement("div2")
+            div2.setAttribute("class", "block");
+            div2.innerHTML += retrievedScores[i].score
+            document.getElementById("scoreDisplay").appendChild(div2)
         }
         displayScore = true;
     }
