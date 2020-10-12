@@ -130,15 +130,14 @@ function saveScore(event) {
     var letters = /^[a-zA-Z]+$/;
 
     if (!initials || initials.length > 2) {
-        alert("Please enter two letters.");
-        return;
+        document.getElementById("validate").innerHTML = "Please enter two letters."
+         return;
     }
     if (inputInitials.value.match(letters)) {
     } else {
-        alert("Please enter two letters only.")
-        return;
+        document.getElementById("validate").innerHTML = "Please enter only two letters."
+         return;
     }
-
 
     var newHighScore = { initials, score }
     highScores.push(newHighScore)
