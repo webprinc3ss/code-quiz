@@ -27,7 +27,7 @@ All the HTML, CSS and JavaScript were created by me although I kept true to the 
 
 ![Website](assets/images/codequiz_screenshot.png)
 
-![Website](codequiz_screenshot_hs.png)
+![Website](assets/images/codequiz_screenshot_hs.png)
 
 <br>
 
