@@ -23,7 +23,11 @@ All the HTML, CSS and JavaScript were created by me although I kept true to the 
 
 # Media
 
+![Website](assets/images/codequiz_screenshot_home)
+
 ![Website](assets/images/codequiz_screenshot.png)
+
+![Website](codequiz_screenshot_hs)
 
 <br>
 

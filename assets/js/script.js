@@ -31,7 +31,7 @@ var questions = [
 
 var currentQuestion = 0
 var timeLeft = 0
-var maxTime = 60
+var maxTime = 75
 var score = 0
 var timerHandle
 var resultDisplayHandle
