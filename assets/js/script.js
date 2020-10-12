@@ -174,10 +174,12 @@ function showScores() {
 function goBack() {
     displayScore = false;
     location.reload();
+    
 }
 
 function clear() {
     localStorage.clear();
+    
 }
 
 document.getElementById("start").addEventListener("click", takeQuiz)
