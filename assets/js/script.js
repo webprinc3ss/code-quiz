@@ -155,6 +155,7 @@ function showScores() {
     if (!displayScore) {
         document.getElementById("startQuiz").style = "display: none";
         document.getElementById("yourScore").style = "display: none";
+        document.getElementById("timer").style = "display: none";
         document.getElementById("listScores").style = "display: block";
         var retrievedScores = JSON.parse(localStorage.getItem("highScores"));
 
