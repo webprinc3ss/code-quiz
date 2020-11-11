@@ -131,12 +131,12 @@ function saveScore(event) {
 
     if (!initials || initials.length > 2) {
         document.getElementById("validate").innerHTML = "Please enter two letters."
-         return;
+        return;
     }
     if (inputInitials.value.match(letters)) {
     } else {
         document.getElementById("validate").innerHTML = "Please enter only two letters."
-         return;
+        return;
     }
 
     var newHighScore = { initials, score }
@@ -152,6 +152,9 @@ function saveScore(event) {
 
 function showScores() {
     if (!displayScore) {
+        document.getElementById("scoreDisplay").innerHTML = "";
+        document.getElementById("initials").innerHTML = "";
+        //empty out scores from browser
         document.getElementById("startQuiz").style = "display: none";
         document.getElementById("yourScore").style = "display: none";
         document.getElementById("timer").style = "display: none";
@@ -174,12 +177,16 @@ function showScores() {
 function goBack() {
     displayScore = false;
     location.reload();
-    
+
 }
 
 function clear() {
-    localStorage.clear();
-    
+
+    window.localStorage.removeItem("highScores");
+    // window.location.reload();
+    showScores();
+
+
 }
 
 document.getElementById("start").addEventListener("click", takeQuiz)
@@ -187,5 +194,3 @@ document.getElementById("initialsForm").addEventListener("submit", saveScore)
 document.getElementById("goBack").addEventListener("click", goBack)
 document.getElementById("clearScores").addEventListener("click", clear)
 document.getElementById("highScores").addEventListener("click", showScores)
-
-
